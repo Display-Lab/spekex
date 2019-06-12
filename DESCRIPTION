@@ -1,0 +1,20 @@
+Package: spekex
+Title: What the Package Does (One Line, Title Case)
+Version: 0.1.0.0
+Authors@R: 
+    person(given = "Colin",
+           family = "Gross",
+           role = c("aut", "cre"),
+           email = "grosscol@umich.edu")
+Description: Provides a common set of testing artifacts for the Display Lab software.
+License: Apache License (>= 2.0)
+Encoding: UTF-8
+LazyData: true
+Imports: dplyr,
+  jsonlite,
+  jsonld,
+  lubridate,
+  readr,
+  rlang
+Suggests: 
+    testthat

@@ -16,8 +16,9 @@ get_annotations_path <- function(suite_name){ internal_suite_path(suite_name, "a
 
 #' @title Internal suite Path
 #' @description Get the path to the spek,data, or annotation for a suite.
+#' @import rlang abort
 internal_suite_path <- function(suite_name, kindof){
-  if(!(suite_name %in% SE$SUITE_NAMES)){ stop(SE$UNRECOGNIZED_NAME) }
+  if(!(suite_name %in% SE$SUITE_NAMES)){ rlang::abort(SE$UNRECOGNIZED_NAME) }
 
   file_suffix <-switch(kindof,
                        "data"="-data.csv",

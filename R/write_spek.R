@@ -2,6 +2,7 @@
 #' @description Output spek to file or stdout
 #' @param spek The list representation of the spek to be written
 #' @param outpath Path to file. Defaults to "" for stdout.
+#' @note this function will be extracted to spektools package
 #' @importFrom jsonlite toJSON
 #' @export
 write_spek <- function(spek, outpath=""){

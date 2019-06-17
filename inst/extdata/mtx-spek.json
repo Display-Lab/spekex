@@ -20,7 +20,8 @@
     "slowmo:PerformanceGapNegative":   "http://example.com/slowmo#PerformanceGapNegative",
     "slowmo:PerformanceTrendPositive": "http://example.com/slowmo#PerformanceTrendPositive",
     "slowmo:PerformanceTrendNegative": "http://example.com/slowmo#PerformanceTrendNegative",
-    "slowmo:RelatedLocation":          "http://example.com/slowmo#RelatedLocation",
+    "slowmo:IsAboutOrganization":      "http://example.com/slowmo#IsAboutOrganization",
+    "slowmo:IsAboutMeasures":          "http://example.com/slowmo#IsAboutOrganization",
     "slowmo:InputTable":               "http://example.com/slowmo#InputTable",
     "psdo:performer_element":       "http://purl.obolibrary.org/obo/psdo_0000085",
     "psdo:performance_template":    "http://purl.obolibrary.org/obo/psdo_0000002",
@@ -30,12 +31,11 @@
     "cpo:prevention_focus":         "http://example.com/cpo#cpo_0000036",
     "cpo:promotion_focus":          "http://example.com/cpo#cpo_0000035",
     "has_part":        "http://purl.obolibrary.org/obo/bfo#BFO_0000051",
-    "has_disposition": "http://purl.obolibrary.org/obo/RO_0000091",
-    "client_spek":     "http://example.com/app#clientname_spek"
+    "has_disposition": "http://purl.obolibrary.org/obo/RO_0000091"
   },
   "@id": "http://example.com/app#nhs-example",
   "@type": "http://example.com/slowmo#spek",
-  "app:related_location": {
+  "slowmo:IsAboutOrganization": {
       "@type": "Organization",
       "address": {
         "@type": "PostalAddress",
@@ -43,10 +43,10 @@
         "name": "NHS General Practitioners"
       }
     },
-  "slowmo:Measure": {
-    "dc:title": "High Dose MethoTrexate Perscribing",
-    "slowmo:goal": "http://example/com/slomo#achievable_benchmark"
-  },
+  "slowmo:IsAboutMeasure":[
+      {"@type": "slowmo:Measure",
+      "dc:title": "High Dose MethoTrexate Perscribing",
+      "slowmo:goal": "http://example/com/slomo#achievable_benchmark"}],
   "slowmo:IsAboutTemplate": [
     { "@id": "http://example.com/app#SingleLineGraph" },
     { "@id": "http://example.com/app#ComparisonLineGraph" },

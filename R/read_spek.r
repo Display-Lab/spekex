@@ -1,7 +1,7 @@
 #' @title Read Spek
-#' @description Read json-ld spek from disk or use a minimal spek.
+#' @description Read json-ld spek from disk.
 #' @param spek_path String path to file on disk or NULL
-#' @return List representation of the spek from disk or default minimal spek.
+#' @return List representation of the spek from disk.
 #' @note this function will be extracted to spektools package
 #'
 #' @importFrom jsonlite fromJSON

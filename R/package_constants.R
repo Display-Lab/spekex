@@ -18,6 +18,7 @@ SE$COLUMNS_IRI      <- "http://www.w3.org/ns/csvw#columns"
 SE$DIALECT_IRI      <- "http://www.w3.org/ns/csvw#dialect"
 
 SE$SPEK_IRI               <- "http://example.com/slowmo#spek"
-SE$ABOUT_ORGANIZATION_IRI <- "http://example.com/slowmo#IsAboutOrganization" 
+SE$ABOUT_ORGANIZATION_IRI <- "http://example.com/slowmo#IsAboutOrganization"
 SE$ABOUT_MEASURE_IRI      <- "http://example.com/slowmo#IsAboutMeasure"
 SE$ABOUT_TEMPLATE_IRI     <- "http://example.com/slowmo#IsAboutTemplate"
+SE$HAS_CANDIDATE_IRI   <- "http://example.com/slowmo#HasCandidate"

@@ -54,8 +54,7 @@
     { "@id": "http://example.com/app#ComparisonBarGraphHor" },
     { "@id": "http://example.com/app#Leaderboard" },
     { "@id": "http://example.com/app#EnhancedLeaderboard" },
-    { "@id": "http://example.com/app#TopPerformerGraph" },
-    { "@id": "http://example.com/app#IUDGraph" }],
+    { "@id": "http://example.com/app#TopPerformerGraph" }],
   "slowmo:InputTable":{
     "@type": "csvw:Table",
     "dc:title": "High dose MTX perscription ratios.", 

@@ -20,3 +20,4 @@ read_spek <- function(spek_path = NULL){
   converted <- jsonlite::fromJSON(expanded, simplifyDataFrame = F)
   return(converted[[1]])
 }
+

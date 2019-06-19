@@ -1,9 +1,14 @@
 context('suite file providers')
 
-test_that('spek paths exist for each suite.',{
+test_that("spek paths exist for each suite's initial stage.",{
   spek_paths <- lapply(list_suite_names(), get_spek_path)
   paths_exists <- sapply(spek_paths, file.exists)
   expect_true(all(paths_exists))
+})
+
+test_that("spek path exists for suite candidate stage", {
+  spek_path <- get_spek_path("mtx", stage="candidates")
+  expect_true(file.exists(spek_path))
 })
 
 test_that('data suite paths exist for each suite.',{

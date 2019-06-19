@@ -16,7 +16,7 @@ test_that('Retuns named list with expected keys',{
   expect_true(all(TOP_LEVEL_SPEK_KEYS %in% names(result)))
 })
 
-test_that('Returns expected top level keys for all suites',{
+test_that('Returns expected top level keys for all suites initial speks',{
   spek_files <- sapply(SE$SUITE_NAMES,
                        function(n){system.file('extdata', paste0(n,'-spek.json'), package='spekex')})
   results <- lapply(spek_files, FUN=read_spek)
@@ -24,4 +24,3 @@ test_that('Returns expected top level keys for all suites',{
 
   expect_true(all(results_have_names))
 })
-

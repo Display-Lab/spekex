@@ -110,9 +110,9 @@
         {
           "csvw:datatype": "integer", 
           "dc:description": "Count of not documented patients.", 
-          "csvw:name": "not_documented", 
-          "csvw:titles": "Not Documented",
-          "slowmo:ColumnUse": "numerator"
+          "csvw:name": "total", 
+          "csvw:titles": "Total",
+          "slowmo:ColumnUse": "denominator"
         }
       ] 
     } 

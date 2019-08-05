@@ -62,17 +62,18 @@ get_column_list <- function(spek) {
 #' @note this function will be extracted to spektools package
 #' @export
 get_name_of_column <- function(column_specification) {
-  column_specification[['http://www.w3.org/ns/csvw#name']][[1]][['@value']]
+  column_specification[[SE$COLUMN_NAME_IRI]][[1]][['@value']]
 }
 
 #' @title Get Use of Column
 #' @description Extract column use from a single column specification
+#' @param column list representation of a single column from input table of spek
 #' @return character vector of the column use
 #' @describeIn spek_extractors
 #' @note this function will be extracted to spektools package
 #' @export
-get_use_of_column <- function(column_specification) {
-  column_specification[['http://example.com/slowmo#ColumnUse']][[1]][['@value']]
+get_use_of_column <- function(column) {
+  column[[SE$COLUMN_USE_IRI]][[1]][['@value']]
 }
 
 #' @title Get Single Column By Use

@@ -4,32 +4,17 @@
     "slowmo": "http://example.com/slowmo#",
     "csvw":   "http://www.w3.org/ns/csvw#", 
     "dc":     "http://purl.org/dc/terms/",
+    "psdo":   "http://purl.obolibrary.org/obo/",
     "slowmo:Measure":                  "http://example.com/slowmo#Measure",
-    "slowmo:Guideline":                "http://example.com/slowmo#Guideline",
     "slowmo:IsAboutPerformer":         "http://example.com/slowmo#IsAboutPerformer",
-    "slowmo:IsAboutTemplate":          "http://example.com/slowmo#IsAboutTemplate",
     "slowmo:ColumnUse":                "http://example.com/slowmo#ColumnUse",
     "slowmo:IsAboutTemplate":          "http://example.com/slowmo#IsAboutTemplate",
     "slowmo:spek":                     "http://example.com/slowmo#spek",
     "slowmo:IsAboutCausalPathway":     "http://example.com/slowmo#IsAboutCausalPathway",
-    "slowmo:NormativeComparator":      "http://example.com/slowmo#NormativeComparator",
-    "slowmo:PerformerCardinality":     "http://example.com/slowmo#PerformerCardinality",
-    "slowmo:TimeCardinality":          "http://example.com/slowmo#TimeCardinality",
-    "slowmo:CapabilityBarrier":        "http://example.com/slowmo#CapabilityBarrier",
-    "slowmo:PerformanceGapPositive":   "http://example.com/slowmo#PerformanceGapPositive",
-    "slowmo:PerformanceGapNegative":   "http://example.com/slowmo#PerformanceGapNegative",
-    "slowmo:PerformanceTrendPositive": "http://example.com/slowmo#PerformanceTrendPositive",
-    "slowmo:PerformanceTrendNegative": "http://example.com/slowmo#PerformanceTrendNegative",
     "slowmo:IsAboutOrganization":      "http://example.com/slowmo#IsAboutOrganization",
-    "slowmo:IsAboutMeasures":          "http://example.com/slowmo#IsAboutOrganization",
+    "slowmo:IsAboutMeasure":           "http://example.com/slowmo#IsAboutMeasure",
     "slowmo:InputTable":               "http://example.com/slowmo#InputTable",
-    "psdo:performer_element":       "http://purl.obolibrary.org/obo/psdo_0000085",
-    "psdo:performance_template":    "http://purl.obolibrary.org/obo/psdo_0000002",
-    "cpo:causal_pathway":           "http://example.com/cpo#cpo_0000029",
-    "cpo:prevention_framing":       "http://example.com/cpo#cpo_0000038",
-    "cpo:promotion_framing":        "http://example.com/cpo#cpo_0000037",
-    "cpo:prevention_focus":         "http://example.com/cpo#cpo_0000036",
-    "cpo:promotion_focus":          "http://example.com/cpo#cpo_0000035",
+    "slowmo:WithComparator":           "http://example.com/slowmo#WithComparator",
     "has_part":        "http://purl.obolibrary.org/obo/bfo#BFO_0000051",
     "has_disposition": "http://purl.obolibrary.org/obo/RO_0000091"
   },
@@ -47,6 +32,14 @@
     }
   },
   "slowmo:IsAboutMeasure":[
+    { "@id": "_:m1",
+      "@type": "//purl.obolibrary.org/obo/psdo.owl/psdo_0000102",
+      "dc:title": "High Dose MethoTrexate Perscribing",
+      "slowmo:WithComparator":{
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+      "name": "goal",
+      "dc:title": "GOAL"}
+    },
     { "@type": "slowmo:Measure",
       "dc:title": "Low MAP Prevention",
       "identifier": "BP01",
@@ -108,10 +101,9 @@
       "identifier": "TRAN02",
       "slowmo:goal": "static percent"}
   ],
-
-  "slowmo:IsAboutTemplate": [{ "@id": "http://example.com/app#MultieMeasureBars" }],
+  "slowmo:IsAboutTemplate": [{ "@id": "http://example.com/app#MultiMeasureBars" }],
   "slowmo:InputTable":{
-    "@type": "csvw:Table",
+    "@type": "http://www.w3.org/ns/csvw#Table",
     "dc:title": "MPOG ASPIRE Case Counts", 
     "csvw:dialect": {
       "csvw:commentPrefix": "", 
@@ -136,35 +128,35 @@
           "csvw:datatype": "string", 
           "dc:description": "Name of ASPIRE measurement", 
           "csvw:name": "Measure_Name", 
-          "csvw:titles": "Measure",
+          "csvw:title": "Measure",
           "slowmo:ColumnUse": "identifier"
         },
         {
           "csvw:datatype": "string", 
           "dc:description": "Staff identification number", 
           "csvw:name": "Staff_Number", 
-          "csvw:titles": "Staff ID",
+          "csvw:title": "Staff ID",
           "slowmo:ColumnUse": "identifier"
         },
         {
           "csvw:datatype": "date", 
           "dc:description": "Performance calendar month.", 
           "csvw:name": "Month", 
-          "csvw:titles": "Month",
+          "csvw:title": "Month",
           "slowmo:ColumnUse": "time"
         },
         {
           "csvw:datatype": "integer", 
           "dc:description": "Count of non-excluded cases.", 
           "csvw:name": "Denominator", 
-          "csvw:titles": "Count of Non-Excluded Cases",
+          "csvw:title": "Count of Non-Excluded Cases",
           "slowmo:ColumnUse": "denominator"
         },
         {
           "csvw:datatype": "integer", 
           "dc:description": "Count of cases that passed measurement criteria.", 
           "csvw:name": "Passed_Count", 
-          "csvw:titles": "Count of Passed Cases",
+          "csvw:title": "Count of Passed Cases",
           "slowmo:ColumnUse": "numerator"
         }
       ] 

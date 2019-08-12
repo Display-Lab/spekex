@@ -4,32 +4,16 @@
     "slowmo": "http://example.com/slowmo#",
     "csvw":   "http://www.w3.org/ns/csvw#", 
     "dc":     "http://purl.org/dc/terms/",
-    "slowmo:Measure":                  "http://example.com/slowmo#Measure",
-    "slowmo:Guideline":                "http://example.com/slowmo#Guideline",
+    "psdo":   "http://purl.obolibrary.org/obo/",
     "slowmo:IsAboutPerformer":         "http://example.com/slowmo#IsAboutPerformer",
-    "slowmo:IsAboutTemplate":          "http://example.com/slowmo#IsAboutTemplate",
     "slowmo:ColumnUse":                "http://example.com/slowmo#ColumnUse",
     "slowmo:IsAboutTemplate":          "http://example.com/slowmo#IsAboutTemplate",
     "slowmo:spek":                     "http://example.com/slowmo#spek",
     "slowmo:IsAboutCausalPathway":     "http://example.com/slowmo#IsAboutCausalPathway",
-    "slowmo:NormativeComparator":      "http://example.com/slowmo#NormativeComparator",
-    "slowmo:PerformerCardinality":     "http://example.com/slowmo#PerformerCardinality",
-    "slowmo:TimeCardinality":          "http://example.com/slowmo#TimeCardinality",
-    "slowmo:CapabilityBarrier":        "http://example.com/slowmo#CapabilityBarrier",
-    "slowmo:PerformanceGapPositive":   "http://example.com/slowmo#PerformanceGapPositive",
-    "slowmo:PerformanceGapNegative":   "http://example.com/slowmo#PerformanceGapNegative",
-    "slowmo:PerformanceTrendPositive": "http://example.com/slowmo#PerformanceTrendPositive",
-    "slowmo:PerformanceTrendNegative": "http://example.com/slowmo#PerformanceTrendNegative",
     "slowmo:IsAboutOrganization":      "http://example.com/slowmo#IsAboutOrganization",
-    "slowmo:IsAboutMeasures":          "http://example.com/slowmo#IsAboutOrganization",
+    "slowmo:IsAboutMeasure":           "http://example.com/slowmo#IsAboutMeasure",
     "slowmo:InputTable":               "http://example.com/slowmo#InputTable",
-    "psdo:performer_element":       "http://purl.obolibrary.org/obo/psdo_0000085",
-    "psdo:performance_template":    "http://purl.obolibrary.org/obo/psdo_0000002",
-    "cpo:causal_pathway":           "http://example.com/cpo#cpo_0000029",
-    "cpo:prevention_framing":       "http://example.com/cpo#cpo_0000038",
-    "cpo:promotion_framing":        "http://example.com/cpo#cpo_0000037",
-    "cpo:prevention_focus":         "http://example.com/cpo#cpo_0000036",
-    "cpo:promotion_focus":          "http://example.com/cpo#cpo_0000035",
+    "slowmo:WithComparator":           "http://example.com/slowmo#WithComparator",
     "has_part":        "http://purl.obolibrary.org/obo/bfo#BFO_0000051",
     "has_disposition": "http://purl.obolibrary.org/obo/RO_0000091"
   },
@@ -47,8 +31,15 @@
         "name": "Example Client"
       }
     },
-  "slowmo:IsAboutMeasure":[
-      {"@type": "slowmo:Measure", "dc:title": "Dummy Measure"}],
+  "slowmo:IsAboutMeasure":[ {
+    "@id": "_:m1",
+    "@type": "//purl.obolibrary.org/obo/psdo.owl/psdo_0000102",
+    "dc:title": "Dummy Measure",
+    "slowmo:WithComparator":{
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+      "name": "base_expected",
+      "dc:title": "Expectation"}
+  } ],
   "slowmo:IsAboutPerformer": [
     {
       "@id": "http://example.com/app#Alice",
@@ -58,11 +49,7 @@
       "@id": "http://example.com/app#Bob",
       "@type": "http://purl.obolibrary.org/obo/psdo_0000085"
     }],
-  "slowmo:IsAboutCausalPathway": [
-    {
-      "@id": "http://example.com/app#EliminateGap",
-      "@type": "http://example.com/cpo#cpo_0000029"
-    }],
+  "slowmo:IsAboutCausalPathway": [ { "@id": "http://example.com/app#EliminateGap" }],
   "slowmo:IsAboutTemplate": [
     {
       "@id": "http://example.com/app#ShowGapTemplate"
@@ -75,7 +62,7 @@
     "slowmo:Guideline": 10
   },
   "slowmo:InputTable":{
-    "@type": "csvw:Table",
+    "@type": "http://www.w3.org/ns/csvw#Table",
     "dc:title": "Mock Performance Data", 
     "csvw:dialect": {
       "csvw:commentPrefix": "", 
@@ -100,21 +87,21 @@
           "csvw:datatype": "string", 
           "dc:description": "Performer unique ID", 
           "csvw:name": "performer", 
-          "csvw:titles": "Name",
+          "csvw:title": "Name",
           "slowmo:ColumnUse": "identifier"
         },
         {
           "csvw:datatype": "integer", 
           "dc:description": "Time at which performance was measured.", 
           "csvw:name": "timepoint", 
-          "csvw:titles": "Time",
+          "csvw:title": "Time",
           "slowmo:ColumnUse": "time"
         },
         {
           "csvw:datatype": "integer", 
           "dc:description": "Demonstration performance value", 
           "csvw:name": "performance", 
-          "csvw:titles": "Performance",
+          "csvw:title": "Performance",
           "slowmo:ColumnUse": "value"
         }
       ] 

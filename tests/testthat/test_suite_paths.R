@@ -7,6 +7,7 @@ test_that("spek paths exist for each suite's initial stage.",{
 })
 
 test_that("spek path exists for suite candidate stage", {
+  skip('pending issue 13')
   spek_path <- get_spek_path("mtx", stage="candidates")
   expect_true(file.exists(spek_path))
 })

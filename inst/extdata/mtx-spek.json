@@ -30,11 +30,11 @@
     },
   "slowmo:IsAboutMeasure":[ {
     "@id": "_:m1",
-    "@type": "//purl.obolibrary.org/obo/psdo.owl/psdo_0000102",
-    "dc:title": "High Dose MethoTrexate Perscribing",
+    "@type": "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000102",
+    "dc:title": "High Dose MethoTrexate Perscribing Rate",
     "slowmo:WithComparator":{
       "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
-      "name": "goal",
+      "name": "achievable_benchmark",
       "dc:title": "GOAL"}
   } ],
   "slowmo:IsAboutTemplate": [

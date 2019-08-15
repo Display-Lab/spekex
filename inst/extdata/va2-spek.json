@@ -1,0 +1,115 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "slowmo": "http://example.com/slowmo#",
+    "csvw":   "http://www.w3.org/ns/csvw#", 
+    "dc":     "http://purl.org/dc/terms/",
+    "psdo":   "http://purl.obolibrary.org/obo/",
+    "slowmo:IsAboutPerformer":         "http://example.com/slowmo#IsAboutPerformer",
+    "slowmo:ColumnUse":                "http://example.com/slowmo#ColumnUse",
+    "slowmo:IsAboutTemplate":          "http://example.com/slowmo#IsAboutTemplate",
+    "slowmo:spek":                     "http://example.com/slowmo#spek",
+    "slowmo:IsAboutCausalPathway":     "http://example.com/slowmo#IsAboutCausalPathway",
+    "slowmo:IsAboutOrganization":      "http://example.com/slowmo#IsAboutOrganization",
+    "slowmo:IsAboutMeasure":           "http://example.com/slowmo#IsAboutMeasure",
+    "slowmo:InputTable":               "http://example.com/slowmo#InputTable",
+    "slowmo:WithComparator":           "http://example.com/slowmo#WithComparator",
+    "has_part":        "http://purl.obolibrary.org/obo/bfo#BFO_0000051",
+    "has_disposition": "http://purl.obolibrary.org/obo/RO_0000091"
+  },
+  "@id": "http://example.com/app#va-example",
+  "@type": "http://example.com/slowmo#spek",
+  "slowmo:IsAboutOrganization": {
+      "@type": "Organization",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "USA",
+        "name": "U.S. Department of Veterans Affairs",
+        "addressLocality": "Washington",
+        "addressRegion": "DC",
+        "postalCode": "20571",
+        "streetAddress": "810 Vermont Ave NW"
+      }
+    },
+  "slowmo:IsAboutMeasure":[ 
+    { "@id": "_:m1",
+      "@type": "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000102",
+      "dc:title": "Short-Stay Care Documentation",
+      "identifier": "Short-Stay",
+      "slowmo:WithComparator":{
+        "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+        "name": "peer_ave",
+        "dc:title": "Peer Site Average"} },
+    { "@id": "_:m2",
+      "@type": "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000102",
+      "dc:title": "Long-Term Care Documentation",
+      "identifier": "Long-Term",
+      "slowmo:WithComparator":{
+        "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+        "name": "peer_ave",
+        "dc:title": "Peer Site Average"} }
+  ],
+  "slowmo:IsAboutTemplate": [
+    { "@id": "http://example.com/app#SingleLineGraph" },
+    { "@id": "http://example.com/app#ComparisonLineGraph" },
+    { "@id": "http://example.com/app#ComparisonBarGraphVert" },
+    { "@id": "http://example.com/app#ComparisonBarGraphHor" },
+    { "@id": "http://example.com/app#Leaderboard" },
+    { "@id": "http://example.com/app#EnhancedLeaderboard" },
+    { "@id": "http://example.com/app#TopPerformerGraph" } ],
+  "slowmo:IsAboutCausalPathway": [],
+  "slowmo:InputTable":{
+    "@type": "http://www.w3.org/ns/csvw#Table",
+    "dc:title": "VA Documentation", 
+    "csvw:dialect": {
+      "csvw:commentPrefix": "", 
+      "csvw:delimiter": ",", 
+      "csvw:doubleQuote": true, 
+      "csvw:encoding": "utf-8", 
+      "csvw:header": true, 
+      "csvw:headerRowCount": "1", 
+      "csvw:lineTerminators": [
+        "\\n"
+      ], 
+      "csvw:quoteChar": "\"", 
+      "csvw:skipBlankRows": true, 
+      "csvw:skipColumns": 1, 
+      "csvw:skipInitialSpace": false, 
+      "csvw:skipRows": "", 
+      "csvw:trim": false
+    }, 
+    "csvw:tableSchema": {
+      "csvw:columns": [
+        {
+          "csvw:datatype": "string", 
+          "dc:description": "site unique ID", 
+          "csvw:name": "sta6a", 
+          "csvw:title": "Site",
+          "slowmo:ColumnUse": "identifier"
+        },
+        {
+          "csvw:datatype": "date", 
+          "dc:description": "Month of documentation.", 
+          "csvw:name": "report_month", 
+          "csvw:title": "Month",
+          "slowmo:ColumnUse": "time"
+        },
+        {
+          "csvw:datatype": "integer", 
+          "dc:description": "Count of documented patients.", 
+          "csvw:name": "documented", 
+          "csvw:title": "Documented",
+          "slowmo:ColumnUse": "numerator"
+        },
+        {
+          "csvw:datatype": "integer", 
+          "dc:description": "Count of not documented patients.", 
+          "csvw:name": "total", 
+          "csvw:title": "Total",
+          "slowmo:ColumnUse": "denominator"
+        }
+      ] 
+    } 
+  }
+}
+

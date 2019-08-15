@@ -1,7 +1,7 @@
 # Package Constants
 SE <- new.env()
 
-SE$SUITE_NAMES <- c('sham','va','mtx', 'aspire')
+SE$SUITE_NAMES <- c('sham','va','mtx', 'aspire', 'va2')
 
 # Error messages
 SE$UNRECOGNIZED_NAME <- "Unrecognized set name."
@@ -9,7 +9,7 @@ SE$NO_SPEK_MSG <- "No spek specified."
 
 # IRIs for spek parsing.  Will be extracted to spektools
 SE$INPUT_TABLE_IRI  <- "http://example.com/slowmo#InputTable"
-SE$MEASURE_IRI      <- "http://example.com/slowmo#Measure"
+SE$MEASURE_IRI      <- "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000102"
 SE$COLUMN_USE_IRI   <- "http://example.com/slowmo#ColumnUse"
 SE$TABLE_SCHEMA_IRI <- "http://www.w3.org/ns/csvw#tableSchema"
 SE$COLUMN_NAME_IRI  <- "http://www.w3.org/ns/csvw#name"
@@ -19,12 +19,17 @@ SE$DESCRIPTION_IRI  <- "http://purl.org/dc/terms/description"
 SE$TABLE_IRI        <- "http://www.w3.org/ns/csvw#Table"
 SE$COLUMNS_IRI      <- "http://www.w3.org/ns/csvw#columns"
 SE$DIALECT_IRI      <- "http://www.w3.org/ns/csvw#dialect"
+SE$DC_TITLE_IRI     <- "http://purl.org/dc/terms/title"
+SE$SCHEMA_NAME_IRI  <- "http://schema.org/name"
+SE$SCHEMA_IDENTIFIER_IRI <- "http://schema.org/identifier"
+SE$WITH_COMPARATOR_IRI   <- "http://example.com/slowmo#WithComparator"
 
-SE$SPEK_IRI               <- "http://example.com/slowmo#spek"
+SE$SPEK_IRI           <- "http://example.com/slowmo#spek"
+SE$ABOUT_MEASURE_IRI  <- "http://example.com/slowmo#IsAboutMeasure"
+SE$ABOUT_TEMPLATE_IRI <- "http://example.com/slowmo#IsAboutTemplate"
+SE$HAS_CANDIDATE_IRI  <- "http://example.com/slowmo#HasCandidate"
+SE$COMPARISON_VALUE   <- "http://example.com/slowmo#ComparisonValue"
 SE$ABOUT_ORGANIZATION_IRI <- "http://example.com/slowmo#IsAboutOrganization"
-SE$ABOUT_MEASURE_IRI      <- "http://example.com/slowmo#IsAboutMeasure"
-SE$ABOUT_TEMPLATE_IRI     <- "http://example.com/slowmo#IsAboutTemplate"
-SE$HAS_CANDIDATE_IRI   <- "http://example.com/slowmo#HasCandidate"
 
 ### Additional IRIs used in bitstomach ###
 SE$HAS_DISPOSITION_IRI <- "http://purl.obolibrary.org/obo/RO_0000091"

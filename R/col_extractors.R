@@ -1,7 +1,7 @@
 #' @title Get ID Columns from Spek
 #' @description Examines column use attribute for "identifier" in column spec.
 #' @return character vector of identifier columns
-#' @describeIn spek_extractors
+#' @describeIn col_extractors
 #' @note this function will be extracted to spektools package
 #' @export
 get_id_col_from_spek <- function(spek){ get_colnames_by_use(spek, "identifier") }
@@ -9,7 +9,7 @@ get_id_col_from_spek <- function(spek){ get_colnames_by_use(spek, "identifier") 
 #' @title Get Numerator Column Name
 #' @description Get name of column that has "numerator" column use in the column spec.
 #' @return name of single numerator column
-#' @describeIn spek_extractors
+#' @describeIn col_extractors
 #' @note this function will be extracted to spektools package.
 #' Does not handle multi-numerator data.
 #' @importFrom dplyr first
@@ -21,7 +21,7 @@ get_numerator_colname <- function(spek){
 #' @title Get Denominator Column Name
 #' @description Get name of column that has "denominator" column use in the column spec.
 #' @return name of single denominator column or NA when no denominator is found
-#' @describeIn spek_extractors
+#' @describeIn col_extractors
 #' @note this function will be extracted to spektools package
 #' Does not handle multi-denominator data.
 #' @importFrom dplyr first
@@ -34,7 +34,7 @@ get_denominator_colname <- function(spek){
 #' @description Get names of columsn that have "value" or "numerator" column use
 #' in the column spec.
 #' @return character vector of names of value or numerator columns
-#' @describeIn spek_extractors
+#' @describeIn col_extractors
 #' @note this function will be extracted to spektools package
 #' @export
 get_value_or_numerator_col_from_spek <- function(spek) {
@@ -48,7 +48,7 @@ get_value_or_numerator_col_from_spek <- function(spek) {
 #' @title Get Column List
 #' @description Extract column list from spek
 #' @return list of columns from table schema of spek
-#' @describeIn spek_extractors
+#' @describeIn col_extractors
 #' @note this function will be extracted to spektools package
 #' @export
 get_column_list <- function(spek) {
@@ -58,7 +58,7 @@ get_column_list <- function(spek) {
 #' @title Get Name of Column
 #' @description Extract column name from a single column specification
 #' @return character vector of the column name
-#' @describeIn spek_extractors
+#' @describeIn col_extractors
 #' @note this function will be extracted to spektools package
 #' @export
 get_name_of_column <- function(column_specification) {
@@ -69,7 +69,7 @@ get_name_of_column <- function(column_specification) {
 #' @description Extract column use from a single column specification
 #' @param column list representation of a single column from input table of spek
 #' @return character vector of the column use
-#' @describeIn spek_extractors
+#' @describeIn col_extractors
 #' @note this function will be extracted to spektools package
 #' @export
 get_use_of_column <- function(column) {
@@ -81,7 +81,7 @@ get_use_of_column <- function(column) {
 #' @param spek list representation of spek
 #' @param use string name of column use
 #' @return character vector of the column names
-#' @describeIn spek_extractors
+#' @describeIn col_extractors
 #' @note this function will be extracted to spektools package
 get_colnames_by_use <- function(spek, use){
   column_list <- get_column_list(spek)

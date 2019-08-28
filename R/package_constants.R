@@ -1,4 +1,6 @@
 # Package Constants
+
+#' @export SE
 SE <- new.env()
 
 SE$SUITE_NAMES <- c('sham','va','mtx', 'aspire', 'va2')

@@ -17,56 +17,50 @@
     "has_part":        "http://purl.obolibrary.org/obo/bfo#BFO_0000051",
     "has_disposition": "http://purl.obolibrary.org/obo/RO_0000091"
   },
-  "@id": "http://example.com/app#example-client",
+  "@id": "http://example.com/app#va-example",
   "@type": "http://example.com/slowmo#spek",
   "slowmo:IsAboutOrganization": {
       "@type": "Organization",
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "United States",
-        "addressLocality": "Ann Arbor",
-        "addressRegion": "Michigan",
-        "postalCode": "48109",
-        "streetAddress": "903 South Univeristy",
-        "name": "Example Client"
+        "addressCountry": "USA",
+        "name": "U.S. Department of Veterans Affairs",
+        "addressLocality": "Washington",
+        "addressRegion": "DC",
+        "postalCode": "20571",
+        "streetAddress": "810 Vermont Ave NW"
       }
     },
   "slowmo:IsAboutMeasure":[ 
-    {
-      "@id": "_:m1",
+    { "@id": "_:m1",
       "@type": "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000102",
-      "dc:title": "Dummy Measure",
+      "dc:title": "Short-Stay Care Documentation",
+      "identifier": "Short-Stay",
       "slowmo:WithComparator":{
-        "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
-        "name": "base_expected",
-        "dc:title": "Expectation",
-        "slowmo:ComparisonValue": 11 } 
-    }
+        "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+        "name": "peer_ave",
+        "dc:title": "Peer Site Average"} },
+    { "@id": "_:m2",
+      "@type": "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000102",
+      "dc:title": "Long-Term Care Documentation",
+      "identifier": "Long-Term",
+      "slowmo:WithComparator":{
+        "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+        "name": "peer_ave",
+        "dc:title": "Peer Site Average"} }
   ],
-  "slowmo:IsAboutPerformer": [
-    {
-      "@id": "http://example.com/app#Alice",
-      "@type": "http://purl.obolibrary.org/obo/psdo_0000085"
-    },
-    {
-      "@id": "http://example.com/app#Bob",
-      "@type": "http://purl.obolibrary.org/obo/psdo_0000085"
-    }],
-  "slowmo:IsAboutCausalPathway": [ { "@id": "http://example.com/app#EliminateGap" }],
   "slowmo:IsAboutTemplate": [
-    {
-      "@id": "http://example.com/app#ShowGapTemplate"
-    },
-    {
-      "@id": "http://example.com/app#ShowTrendTemplate"
-    }],
-  "slowmo:Measure": {
-    "dc:title": "Generic Performance",
-    "slowmo:Guideline": 10
-  },
+    { "@id": "http://example.com/app#SingleLineGraph" },
+    { "@id": "http://example.com/app#ComparisonLineGraph" },
+    { "@id": "http://example.com/app#ComparisonBarGraphVert" },
+    { "@id": "http://example.com/app#ComparisonBarGraphHor" },
+    { "@id": "http://example.com/app#Leaderboard" },
+    { "@id": "http://example.com/app#EnhancedLeaderboard" },
+    { "@id": "http://example.com/app#TopPerformerGraph" } ],
+  "slowmo:IsAboutCausalPathway": [],
   "slowmo:InputTable":{
     "@type": "http://www.w3.org/ns/csvw#Table",
-    "dc:title": "Mock Performance Data", 
+    "dc:title": "VA Documentation", 
     "csvw:dialect": {
       "csvw:commentPrefix": "", 
       "csvw:delimiter": ",", 
@@ -79,7 +73,7 @@
       ], 
       "csvw:quoteChar": "\"", 
       "csvw:skipBlankRows": true, 
-      "csvw:skipColumns": 0, 
+      "csvw:skipColumns": 1, 
       "csvw:skipInitialSpace": false, 
       "csvw:skipRows": "", 
       "csvw:trim": false
@@ -88,24 +82,31 @@
       "csvw:columns": [
         {
           "csvw:datatype": "string", 
-          "dc:description": "Performer unique ID", 
-          "csvw:name": "performer", 
-          "csvw:title": "Name",
+          "dc:description": "site unique ID", 
+          "csvw:name": "sta6a", 
+          "csvw:title": "Site",
           "slowmo:ColumnUse": "identifier"
         },
         {
-          "csvw:datatype": "integer", 
-          "dc:description": "Time at which performance was measured.", 
-          "csvw:name": "timepoint", 
-          "csvw:title": "Time",
+          "csvw:datatype": "date", 
+          "dc:description": "Month of documentation.", 
+          "csvw:name": "report_month", 
+          "csvw:title": "Month",
           "slowmo:ColumnUse": "time"
         },
         {
           "csvw:datatype": "integer", 
-          "dc:description": "Demonstration performance value", 
-          "csvw:name": "performance", 
-          "csvw:title": "Performance",
-          "slowmo:ColumnUse": "value"
+          "dc:description": "Count of documented patients.", 
+          "csvw:name": "documented", 
+          "csvw:title": "Documented",
+          "slowmo:ColumnUse": "numerator"
+        },
+        {
+          "csvw:datatype": "integer", 
+          "dc:description": "Count of not documented patients.", 
+          "csvw:name": "total", 
+          "csvw:title": "Total",
+          "slowmo:ColumnUse": "denominator"
         }
       ] 
     } 

@@ -1,0 +1,9 @@
+"sta6a","report_month", "measure", "documented","not_documented","total"
+"4369AA",2018-02-01,"Short-Stay",0,1,1
+"4369AA",2018-03-01,"Short-Stay",0,0,0
+"4369AA",2018-04-01,"Short-Stay",0,0,0
+"4369AA",2018-05-01,"Short-Stay",1,1,2
+"4369AA",2018-02-01,"Long-Term",2,3,5
+"4369AA",2018-03-01,"Long-Term",0,0,0
+"4369AA",2018-04-01,"Long-Term",4,0,4
+"4369AA",2018-05-01,"Long-Term",1,1,2

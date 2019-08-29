@@ -29,9 +29,8 @@ get_denominator_colname <- function(spek){
 
 #' @title Get Measure Column Name
 #' @return name of measure column or NA when no denominator is found
-#' @describeIn col_extractors Get name of column that has "denominator" column use in the column spec.
+#' @describeIn col_extractors Get name of column that has "measure" column use in the column spec.
 #' @note this function will be extracted to spektools package
-#' Does not handle multi-denominator data.
 #' @importFrom dplyr first
 #' @export
 get_measure_colname <- function(spek){

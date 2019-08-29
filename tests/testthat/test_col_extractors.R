@@ -4,6 +4,7 @@ context("testing spek extractors")
 SHAM_SPEK <- read_spek(get_spek_path('sham'))
 MTX_SPEK <- read_spek(get_spek_path('mtx'))
 VA_SPEK <- read_spek(get_spek_path('va'))
+VA2_SPEK <- read_spek(get_spek_path('va2'))
 
 EXPECTED_USE_COLNAMES <- list(numerators=c(NA, 'high_dose_scripts', 'documented'),
                           denominators=c(NA,'total_scripts','total'),
@@ -20,6 +21,13 @@ test_that("id column name extractor returns character vector", {
 test_that("value column name extractor returns name of value column", {
   result <- get_value_or_numerator_col_from_spek(SHAM_SPEK)
   expect_identical(result, "performance")
+})
+
+test_that("measure column name extractor returns name of value column", {
+  result_sham <- get_measure_colname(SHAM_SPEK)
+  result_va2  <- get_measure_colname(VA2_SPEK)
+  expect_identical(result_sham, NA)
+  expect_identical(result_va2, "measure")
 })
 
 test_that("numerator column name extractor returns name of numerator column",{

@@ -95,6 +95,13 @@
           "slowmo:ColumnUse": "time"
         },
         {
+          "csvw:datatype": "string", 
+          "dc:description": "Stay type", 
+          "csvw:name": "measure", 
+          "csvw:title": "Care Type",
+          "slowmo:ColumnUse": "measure"
+        },
+        {
           "csvw:datatype": "integer", 
           "dc:description": "Count of documented patients.", 
           "csvw:name": "documented", 

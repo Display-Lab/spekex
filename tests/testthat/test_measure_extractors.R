@@ -45,6 +45,11 @@ test_that("identifier can be extracted from measure",{
   expect_identical(result, "M01")
 })
 
+test_that("id can be extracted from measure",{
+  result <- id_of_measure(MEASURE)
+  expect_identical(result, "_:m1")
+})
+
 test_that("comparator can be extracted from measure",{
   result <- comparator_of_measure(MEASURE)
   expect_identical(result, COMPARATOR)

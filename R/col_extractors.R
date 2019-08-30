@@ -28,8 +28,8 @@ get_denominator_colname <- function(spek){
 }
 
 #' @title Get Measure Column Name
-#' @return name of measure column or NA when no denominator is found
 #' @describeIn col_extractors Get name of column that has "measure" column use in the column spec.
+#' @return name of measure column or NA when no denominator is found
 #' @note this function will be extracted to spektools package
 #' @importFrom dplyr first
 #' @export

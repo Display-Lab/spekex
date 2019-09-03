@@ -1,6 +1,6 @@
 Package: spekex
 Title: What the Package Does (One Line, Title Case)
-Version: 0.3.2.0
+Version: 0.3.3.0
 Authors@R: 
     person(given = "Colin",
            family = "Gross",

@@ -13,8 +13,11 @@ library(lubridate)
 setup_cache <- function(data, spek){
   cache <- list()
 
-  # Hardcode column names.  Extract from spek in subsequent versions.
+  # Id column will always be id
   cache$id_colname      <- 'id'
+  cache$id_col_sym      <- rlang::sym(cache$id_colname)
+
+  # Hardcode column names.  Extract from spek in subsequent versions.
   cache$denom_colname   <- 'Denominator'
   cache$numer_colname   <- 'Passed_Count'
   cache$time_colname    <- 'Month'
@@ -23,7 +26,6 @@ setup_cache <- function(data, spek){
   # Make a symbol of the numerator and denominator columns
   cache$denom_col_sym   <- rlang::sym(cache$denom_colname)
   cache$numer_col_sym   <- rlang::sym(cache$numer_colname)
-  cache$id_col_sym      <- rlang::sym(cache$id_colname)
   cache$time_col_sym    <- rlang::sym(cache$time_colname)
   cache$measure_col_sym <- rlang::sym(cache$measure_colname)
 

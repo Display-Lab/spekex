@@ -33,7 +33,7 @@
     },
   "slowmo:IsAboutMeasure":[ 
     { "@id": "_:m1",
-      "@type": "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000102",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
       "dc:title": "Short-Stay Care Documentation",
       "identifier": "Short-Stay",
       "slowmo:WithComparator":{
@@ -41,7 +41,7 @@
         "name": "peer_ave",
         "dc:title": "Peer Site Average"} },
     { "@id": "_:m2",
-      "@type": "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000102",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
       "dc:title": "Long-Term Care Documentation",
       "identifier": "Long-Term",
       "slowmo:WithComparator":{

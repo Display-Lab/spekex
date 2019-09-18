@@ -12,7 +12,7 @@ COMPARATOR <- list( `@type` = "http://purl.obolibrary.org/obo/psdo_0000094",
                   `http://example.com/slowmo#ComparisonValue` = list(list( `@value` = 11L))
                 )
 
-MEASURE <- list(`@id` = "_:m1", `@type` = "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000102",
+MEASURE <- list(`@id` = "_:m1", `@type` = "http://purl.obolibrary.org/obo/psdo_0000102",
                 `http://purl.org/dc/terms/title` = list(list(`@value` = "Measure Title")),
                 `http://schema.org/identifier` = list(list(`@value` = "M01")),
                 `http://example.com/slowmo#WithComparator` = list(COMPARATOR)

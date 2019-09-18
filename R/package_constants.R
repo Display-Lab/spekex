@@ -12,7 +12,7 @@ SE$MEASURE_NOT_IN_SPEK <- "Measure not found in spek."
 
 # IRIs for spek parsing.  Will be extracted to spektools
 SE$INPUT_TABLE_IRI  <- "http://example.com/slowmo#InputTable"
-SE$MEASURE_IRI      <- "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000102"
+SE$MEASURE_IRI      <- "http://purl.obolibrary.org/obo/psdo_0000102"
 SE$COLUMN_USE_IRI   <- "http://example.com/slowmo#ColumnUse"
 SE$TABLE_SCHEMA_IRI <- "http://www.w3.org/ns/csvw#tableSchema"
 SE$COLUMN_NAME_IRI  <- "http://www.w3.org/ns/csvw#name"
@@ -43,20 +43,20 @@ SE$PERFORMER_IRI <- "http://purl.obolibrary.org/obo/psdo_0000085"
 
 # Slowmo ascribee IRIs
 SE$CAPABILITY_BARRIER_IRI <- "http://example.com/slowmo#CapabilityBarrier"
-SE$NEGATIVE_TREND_IRI     <- "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000100"
-SE$POSITIVE_TREND_IRI     <- "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000099"
-SE$NEGATIVE_GAP_IRI       <- "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000105"
-SE$POSITIVE_GAP_IRI       <- "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000104"
-SE$PERFORMANCE_GAP_IRI    <- "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000106"
+SE$NEGATIVE_TREND_IRI     <- "http://purl.obolibrary.org/obo/psdo_0000100"
+SE$POSITIVE_TREND_IRI     <- "http://purl.obolibrary.org/obo/psdo_0000099"
+SE$NEGATIVE_GAP_IRI       <- "http://purl.obolibrary.org/obo/psdo_0000105"
+SE$POSITIVE_GAP_IRI       <- "http://purl.obolibrary.org/obo/psdo_0000104"
+SE$PERFORMANCE_GAP_IRI    <- "http://purl.obolibrary.org/obo/psdo_0000106"
 SE$LARGE_GAP_IRI          <- "http://example.com/slowmo#LargeGap"
 
 # Additional preconditions from knowledge base
 SE$ACHEIVEMENT_IRI         <- "http://example.com/slowmo#Achievement"
 SE$CONSEC_NEG_GAP_IRI      <- "http://example.com/slowmo#ConsecutiveNegativePerformanceGapContent"
 SE$CONSEC_POS_GAP_IRI      <- "http://example.com/slowmo#ConsecutivePositivePerformanceGapContent"
-SE$GOAL_COMPARATOR_IRI     <- "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000094"
-SE$SOCIAL_COMPARATOR_IRI   <- "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000095"
-SE$STANDARD_COMPARATOR_IRI <- "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000096"
+SE$GOAL_COMPARATOR_IRI     <- "http://purl.obolibrary.org/obo/psdo_0000094"
+SE$SOCIAL_COMPARATOR_IRI   <- "http://purl.obolibrary.org/obo/psdo_0000095"
+SE$STANDARD_COMPARATOR_IRI <- "http://purl.obolibrary.org/obo/psdo_0000096"
 
 # DEPRECATED
 SE$HAS_DISPOSITION_IRI <- "http://purl.obolibrary.org/obo/RO_0000091"

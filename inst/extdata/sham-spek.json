@@ -34,7 +34,7 @@
   "slowmo:IsAboutMeasure":[ 
     {
       "@id": "_:m1",
-      "@type": "http://purl.obolibrary.org/obo/psdo.owl/psdo_0000102",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
       "dc:title": "Dummy Measure",
       "slowmo:WithComparator":{
         "@type": "http://purl.obolibrary.org/obo/psdo_0000094",

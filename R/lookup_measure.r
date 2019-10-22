@@ -19,6 +19,7 @@ lookup_measure <- function(identifier, spek){
 }
 
 #' @describeIn lookup_measure Convenience method to get @id from identifier value
+#' @export
 lookup_measure_id_by_value <- function(ident_value, spek){
   measure <- lookup_measure(ident_value, spek)
   id_of_measure(measure)

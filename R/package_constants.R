@@ -1,5 +1,4 @@
-# Package Constants
-
+#' Package Constants
 #' @export SE
 SE <- new.env()
 

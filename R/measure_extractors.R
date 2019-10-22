@@ -43,3 +43,17 @@ title_of_comparator <- function(comparator){ comparator[[SE$DC_TITLE_IRI]][[1]][
 comparison_value_of_comparator <- function(comparator){
   comparator[[SE$COMPARISON_VALUE]][[1]][['@value']]
 }
+
+#' @title Type of Comparator
+#' @describeIn measure_extractors Retrieve type of a comparator
+#' @export
+type_of_comparator <- function(comparator){
+  comparator[['@type']]
+}
+
+#' @title Comparator Type of Measure
+#' @describeIn measure_extractors Comparator Type of Measure
+#' @export
+comparator_type_of_measure <- function(measure){
+  type_of_comparator(comparator_of_measure(measure))
+}

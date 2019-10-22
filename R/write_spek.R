@@ -3,20 +3,32 @@
 #' @param spek The list representation of the spek to be written
 #' @param outpath Path to file. Defaults to "" for stdout.
 #' @note this function will be extracted to spektools package
-#' @importFrom jsonlite toJSON
 #' @export
 write_spek <- function(spek, outpath=""){
-  if(!identical(outpath, "")){
-    out <- file(outfile, "wt")
-    if(!isOpen(outfile, "w")){
-      rlang::abort("Output file is not writeble.")
-    }
-  }else{
-    out <- outpath
+  if(identical(outpath, "")){
+    write_spek_stdout(spek)
   }
-   # convert to json
-  spek_json <- jsonlite::toJSON(spek, auto_unbox = T)
+  else{
+    write_spek_file(spek, outpath)
+  }
+}
 
-  # Write content using cat to ensure sink() isn't circumvented
+#' @describeIn write_spek write spek to stdout
+#' @importFrom jsonlite toJSON
+write_spek_stdout <- function(spek){
+  spek_json <- jsonlite::toJSON(spek, auto_unbox = T)
+  cat(spek_json, "")
+}
+
+#' @describeIn write_spek write spek to given path
+#' @importFrom jsonlite toJSON
+#' @importFrom rlang abort
+write_spek_file <- function(spek, outpath){
+  out <- file(outpath, "wt")
+  if(!isOpen(out, "w")){
+    rlang::abort("Output file is not writeble.")
+  }
+  spek_json <- jsonlite::toJSON(spek, auto_unbox = T)
   cat(spek_json, out)
+  close(out)
 }

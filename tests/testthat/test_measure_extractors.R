@@ -4,15 +4,15 @@ context("testing measure extractors")
 SHAM_SPEK <- read_spek(get_spek_path('sham'))
 MTX_SPEK <- read_spek(get_spek_path('mtx'))
 VA_SPEK <- read_spek(get_spek_path('va'))
-VA2_SPEK <- read_spek(get_spek_path('va2'))
+    VA2_SPEK <- read_spek(get_spek_path('va2'))
 
-COMPARATOR <- list( `@type` = "http://purl.obolibrary.org/obo/psdo_0000094",
+COMPARATOR <- list( `@type` = SE$GOAL_COMPARATOR_IRI,
                   `http://purl.org/dc/terms/title` = list(list(`@value` = "Comparator Title")),
                   `http://schema.org/name` = list(list(`@value` = "comp_name")),
                   `http://example.com/slowmo#ComparisonValue` = list(list( `@value` = 11L))
                 )
 
-MEASURE <- list(`@id` = "_:m1", `@type` = "http://purl.obolibrary.org/obo/psdo_0000102",
+MEASURE <- list(`@id` = "_:m1", `@type` = SE$MEASURE_IRI,
                 `http://purl.org/dc/terms/title` = list(list(`@value` = "Measure Title")),
                 `http://schema.org/identifier` = list(list(`@value` = "M01")),
                 `http://example.com/slowmo#WithComparator` = list(COMPARATOR)
@@ -69,4 +69,14 @@ test_that("title can be extracted from comparator",{
 test_that("value can be extracted from comparator",{
   result <- comparison_value_of_comparator(COMPARATOR)
   expect_identical(result, 11L)
+})
+
+test_that("type can be extracted from comparator", {
+  result <- type_of_comparator(COMPARATOR)
+  expect_identical(result, SE$GOAL_COMPARATOR_IRI)
+})
+
+test_that("type of comparator can be extracted from measure", {
+  result <- comparator_type_of_measure(MEASURE)
+  expect_identical(result, SE$GOAL_COMPARATOR_IRI)
 })

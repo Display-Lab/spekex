@@ -31,7 +31,7 @@ setup_cache <- function(data, spek){
 
   # Calculate peer average by measure
   #cache$peer_mean <- calc_peer_measure_means(data, cache)
-  cache$guideline <- 0.90
+  cache$comparator <- 0.90
 
   return(cache)
 }
@@ -46,7 +46,7 @@ calc_peer_measure_means <- function(data, cache){
   denom <- cache$denom_col_sym
   measure <- cache$measure_col_sym
 
-  df <- data %>% 
+  df <- data %>%
     group_by(!!measure) %>%
     mutate(rate = !!numer / !!denom) %>%
     summarize(mean = mean(rate))
@@ -68,11 +68,36 @@ eval_negative_trend <- function(x){
   return(is_tail_descending)
 }
 
+eval_achievement <- function(x, comp){
+  # Last timepoint is at or above comparator and all others are below
+  bools <- x >= comp
+  return( sum(bools)==1 && dplyr::last(bools) == TRUE)
+}
+
+eval_comparator_type <- function(match_iri, spek){
+  # measure_id provided by running environment
+  c_type <- spekex::comparator_type_of_measure(
+    spekex::lookup_measure(measure_id, spek) )
+  identical(c_type, match_iri)
+}
+
+eval_consec_neg_gap <- function(x, comp){
+  if(length(x) < 2){ return(FALSE) }
+  bools <- x < comp
+  return( sum(bools)==2 )
+}
+
+eval_consec_pos_gap <- function(x, comp){
+  if(length(x) < 2){ return(FALSE) }
+  bools <- x > comp
+  return( sum(bools)==2 )
+}
+
 ########################
 # Annotation Functions #
 ########################
 
-annotate_negative_gap_guideline <- function(data, spek){
+annotate_negative_gap <- function(data, spek){
   time <- cache$time_col_sym
   denom <- cache$denom_col_sym
   numer <- cache$numer_col_sym
@@ -82,10 +107,10 @@ annotate_negative_gap_guideline <- function(data, spek){
     dplyr::filter(!!time == max(!!time)) %>%
     mutate(rate = !!numer / !!denom) %>%
     group_by(!!id) %>%
-    summarize(negative_gap = rate < cache$guideline)
+    summarize(negative_gap = rate < cache$comparator)
 }
 
-annotate_positive_gap_guideline <- function(data, spek){
+annotate_positive_gap <- function(data, spek){
   time <- cache$time_col_sym
   denom <- cache$denom_col_sym
   numer <- cache$numer_col_sym
@@ -95,7 +120,7 @@ annotate_positive_gap_guideline <- function(data, spek){
     dplyr::filter(!!time == max(!!time)) %>%
     mutate(rate = !!numer / !!denom) %>%
     group_by(!!id) %>%
-    summarize(positive_gap = rate > cache$guideline)
+    summarize(positive_gap = rate > cache$comparator)
 }
 
 annotate_negative_trend <- function(data, spek){
@@ -128,4 +153,68 @@ annotate_positive_trend <- function(data, spek){
     mutate(rate = !!numer / !!denom) %>%
     group_by(!!id) %>%
     summarize(positive_trend = eval_positive_trend(rate))
+}
+
+annotate_performance_gap <- function(data, spek){
+  time <- cache$time_col_sym
+  denom <- cache$denom_col_sym
+  numer <- cache$numer_col_sym
+  id <- cache$id_col_sym
+
+  data %>%
+    dplyr::filter(!!time == max(!!time)) %>%
+    mutate(rate = !!numer / !!denom) %>%
+    group_by(!!id) %>%
+    summarize(performance_gap = rate != cache$comparator)
+}
+
+annotate_large_gap <- function(data, spek){
+  id <- cache$id_col_sym
+  data %>% group_by(!!id) %>% summarize( large_gap = FALSE)
+}
+
+annotate_acheivement <- function(data, spek){
+  time <- cache$time_col_sym
+  denom <- cache$denom_col_sym
+  numer <- cache$numer_col_sym
+  id <- cache$id_col_sym
+
+  data %>%
+    mutate(rate = !!numer / !!denom) %>%
+    group_by(!!id) %>%
+    summarize( acheivement = eval_achievement(rate,cache$comparator))
+}
+
+annotate_consec_neg_gap <- function(data, spek){
+  id <- cache$id_col_sym
+  data %>% group_by(!!id) %>% summarize( eval_consec_neg_gap = FALSE)
+}
+
+annotate_consec_pos_gap <- function(data, spek){
+  id <- cache$id_col_sym
+  data %>% group_by(!!id) %>% summarize( consec_pos_gap = FALSE)
+}
+
+annotate_goal_comparator <- function(data, spek){
+  is_type <- eval_comparator_type(spekex::SE$GOAL_COMPARATOR_IRI, spek)
+  id <- cache$id_col_sym
+  data %>% group_by(!!id) %>% summarize( goal_comparator = is_type)
+}
+
+annotate_social_comparator <- function(data, spek){
+  is_type <- eval_comparator_type(spekex::SE$SOCIAL_COMPARATOR_IRI, spek)
+  id <- cache$id_col_sym
+  data %>% group_by(!!id) %>% summarize( social_comparator = is_type)
+}
+
+annotate_standard_comparator <- function(data, spek){
+  is_type <- eval_comparator_type(spekex::SE$STANDARD_COMPARATOR_IRI, spek)
+  id <- cache$id_col_sym
+  data %>% group_by(!!id) %>% summarize( standard_comparator = is_type)
+}
+
+# No-op Annotations
+annotate_capability_barrier <- function(data, spek){
+  id <- cache$id_col_sym
+  data %>% group_by(!!id) %>% summarize( capability_barrier = FALSE)
 }

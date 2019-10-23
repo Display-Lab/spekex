@@ -53,9 +53,15 @@ test_that("column list is extracted from spek",{
   expect_equal(length(col_list), 4)
 })
 
-test_that("uses are extracted from column list",{
+test_that("uses are extracted from column",{
   col_list  <- get_column_list(VA_SPEK)
   col_use <- get_use_of_column(col_list[[1]])
   expect_type(col_use, 'character')
   expect_identical(col_use, "identifier")
+})
+
+test_that("types are extracted from column", {
+  col_list  <- get_column_list(VA_SPEK)
+  col_type <- get_type_of_column(col_list[[1]])
+  expect_identical(col_type, "string")
 })

@@ -69,6 +69,11 @@ get_name_of_column <- function(column_specification) {
   column_specification[[SE$COLUMN_NAME_IRI]][[1]][['@value']]
 }
 
+#' @describeIn col_extractors Get data type of column
+get_type_of_column <- function(column_specification) {
+  column_specification[[SE$COLUMN_DTYPE_IRI]][[1]][['@value']]
+}
+
 #' @title Get Use of Column
 #' @param column list representation of a single column from input table of spek
 #' @return character vector of the column use

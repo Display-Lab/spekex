@@ -120,7 +120,7 @@ annotate_positive_gap <- function(data, spek){
     dplyr::filter(!!time == max(!!time)) %>%
     mutate(rate = !!numer / !!denom) %>%
     group_by(!!id) %>%
-    summarize(positive_gap = rate > cache$comparator)
+    summarize(positive_gap = (rate > cache$comparator))
 }
 
 annotate_negative_trend <- function(data, spek){
@@ -165,12 +165,7 @@ annotate_performance_gap <- function(data, spek){
     dplyr::filter(!!time == max(!!time)) %>%
     mutate(rate = !!numer / !!denom) %>%
     group_by(!!id) %>%
-    summarize(performance_gap = rate != cache$comparator)
-}
-
-annotate_large_gap <- function(data, spek){
-  id <- cache$id_col_sym
-  data %>% group_by(!!id) %>% summarize( large_gap = FALSE)
+    summarize(performance_gap = (rate != cache$comparator))
 }
 
 annotate_acheivement <- function(data, spek){
@@ -217,4 +212,9 @@ annotate_standard_comparator <- function(data, spek){
 annotate_capability_barrier <- function(data, spek){
   id <- cache$id_col_sym
   data %>% group_by(!!id) %>% summarize( capability_barrier = FALSE)
+}
+
+annotate_large_gap <- function(data, spek){
+  id <- cache$id_col_sym
+  data %>% group_by(!!id) %>% summarize( large_gap = FALSE)
 }

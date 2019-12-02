@@ -50,7 +50,7 @@ SE$PERFORMANCE_GAP_IRI    <- "http://purl.obolibrary.org/obo/psdo_0000106"
 SE$LARGE_GAP_IRI          <- "http://example.com/slowmo#LargeGap"
 
 # Additional preconditions from knowledge base
-SE$ACHEIVEMENT_IRI         <- "http://example.com/slowmo#Achievement"
+SE$ACHIEVEMENT_IRI         <- "http://example.com/slowmo#Achievement"
 SE$CONSEC_NEG_GAP_IRI      <- "http://example.com/slowmo#ConsecutiveNegativePerformanceGapContent"
 SE$CONSEC_POS_GAP_IRI      <- "http://example.com/slowmo#ConsecutivePositivePerformanceGapContent"
 SE$GOAL_COMPARATOR_IRI     <- "http://purl.obolibrary.org/obo/psdo_0000094"

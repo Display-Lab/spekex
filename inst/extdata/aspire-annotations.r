@@ -168,7 +168,7 @@ annotate_performance_gap <- function(data, spek){
     summarize(performance_gap = (rate != cache$comparator))
 }
 
-annotate_acheivement <- function(data, spek){
+annotate_achievement <- function(data, spek){
   time <- cache$time_col_sym
   denom <- cache$denom_col_sym
   numer <- cache$numer_col_sym
@@ -177,7 +177,7 @@ annotate_acheivement <- function(data, spek){
   data %>%
     mutate(rate = !!numer / !!denom) %>%
     group_by(!!id) %>%
-    summarize( acheivement = eval_achievement(rate,cache$comparator))
+    summarize( achievement = eval_achievement(rate,cache$comparator))
 }
 
 annotate_consec_neg_gap <- function(data, spek){

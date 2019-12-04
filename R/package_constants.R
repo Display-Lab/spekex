@@ -3,11 +3,14 @@
 SE <- new.env()
 
 SE$SUITE_NAMES <- c('sham','va','mtx', 'aspire', 'va2')
+SE$MEASURE_BNODE_PREFIX <- "_:m"
+SE$DEFAULT_BNODE_PREFIX <- "_:z"
 
 # Error messages
 SE$UNRECOGNIZED_NAME <- "Unrecognized set name."
 SE$NO_SPEK_MSG <- "No spek specified."
 SE$MEASURE_NOT_IN_SPEK <- "Measure not found in spek."
+SE$COMPARATOR_NOT_IN_SPEK <- "Comparator not found in spek."
 
 # IRIs for spek parsing.  Will be extracted to spektools
 SE$INPUT_TABLE_IRI  <- "http://example.com/slowmo#InputTable"

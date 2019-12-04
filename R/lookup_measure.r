@@ -1,6 +1,6 @@
 #' @title Lookup Measure
-#' @return measure id string
 #' @description Lookup the measure from the @id value ("_:m01") or identifier value ("BP001".)
+#' @param identifier string value of @id or identifier
 #' @return list representation of measure or empty list
 #' @importFrom rlang warn is_empty
 #' @export

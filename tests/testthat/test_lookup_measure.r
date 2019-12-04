@@ -1,4 +1,4 @@
-context("testing spek extractors")
+context("measure lookup")
 
 VA2_SPEK <- read_spek(get_spek_path('va2'))
 

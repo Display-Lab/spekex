@@ -4,19 +4,28 @@ context("testing measure extractors")
 SHAM_SPEK <- read_spek(get_spek_path('sham'))
 MTX_SPEK <- read_spek(get_spek_path('mtx'))
 VA_SPEK <- read_spek(get_spek_path('va'))
-    VA2_SPEK <- read_spek(get_spek_path('va2'))
+VA2_SPEK <- read_spek(get_spek_path('va2'))
 
-COMPARATOR <- list( `@type` = SE$GOAL_COMPARATOR_IRI,
-                  `http://purl.org/dc/terms/title` = list(list(`@value` = "Comparator Title")),
-                  `http://schema.org/name` = list(list(`@value` = "comp_name")),
-                  `http://example.com/slowmo#ComparisonValue` = list(list( `@value` = 11L))
-                )
+COMP1_TITLE <- "Comparator One"
+COMP1_NAME  <- "comp_one"
+COMP2_TITLE <- "Comparator Two"
+COMP2_NAME  <- "comp_two"
 
+COMPARATOR1 <- list( `@type` = SE$GOAL_COMPARATOR_IRI,
+                    `http://purl.org/dc/terms/title` = list(list(`@value` = COMP1_TITLE)),
+                    `http://schema.org/name` = list(list(`@value` = COMP1_NAME)),
+                    `http://example.com/slowmo#ComparisonValue` = list(list( `@value` = 11L))
+                  )
+COMPARATOR2 <- list( `@type` = SE$SOCIAL_COMPARATOR_IRI,
+                    `http://purl.org/dc/terms/title` = list(list(`@value` = COMP2_TITLE)),
+                    `http://schema.org/name` = list(list(`@value` = COMP2_NAME)),
+                    `http://example.com/slowmo#ComparisonValue` = list(list( `@value` = 11L))
+                  )
 MEASURE <- list(`@id` = "_:m1", `@type` = SE$MEASURE_IRI,
-                `http://purl.org/dc/terms/title` = list(list(`@value` = "Measure Title")),
-                `http://schema.org/identifier` = list(list(`@value` = "M01")),
-                `http://example.com/slowmo#WithComparator` = list(COMPARATOR)
-               )
+                  `http://purl.org/dc/terms/title` = list(list(`@value` = "Measure Title")),
+                  `http://schema.org/identifier` = list(list(`@value` = "M01")),
+                  `http://example.com/slowmo#WithComparator` = list(COMPARATOR1, COMPARATOR2)
+                 )
 
 test_that("measure extractor returns correct number of measures", {
   all_speks <- list(SHAM_SPEK, MTX_SPEK, VA_SPEK, VA2_SPEK )
@@ -50,33 +59,21 @@ test_that("id can be extracted from measure",{
   expect_identical(result, "_:m1")
 })
 
-test_that("comparator can be extracted from measure",{
-  result <- comparator_of_measure(MEASURE)
-  expect_identical(result, COMPARATOR)
+test_that("correct number of comparators are extracted from measure",{
+  result <- comparators_of_measure(MEASURE)
+  expect_type(result, "list")
+  expect_length(result, 2)
 })
 
-test_that("name can be extracted from comparator",{
-  result <- name_of_comparator(COMPARATOR)
-  expect_identical(result, "comp_name")
-})
-
-test_that("title can be extracted from comparator",{
-  result <- title_of_comparator(COMPARATOR)
-  expect_identical(result, "Comparator Title")
-
-})
-
-test_that("value can be extracted from comparator",{
-  result <- comparison_value_of_comparator(COMPARATOR)
-  expect_identical(result, 11L)
-})
-
-test_that("type can be extracted from comparator", {
-  result <- type_of_comparator(COMPARATOR)
-  expect_identical(result, SE$GOAL_COMPARATOR_IRI)
+test_that("comparators are extracted from measure",{
+  result <- comparators_of_measure(MEASURE)
+  expected <- list(COMPARATOR1, COMPARATOR2)
+  expect_identical(result, expected)
 })
 
 test_that("type of comparator can be extracted from measure", {
-  result <- comparator_type_of_measure(MEASURE)
-  expect_identical(result, SE$GOAL_COMPARATOR_IRI)
+  result <- comparator_types_of_measure(MEASURE)
+  expect_type(result, "list")
+  expect_length(result, 2)
+  expect_identical(result, list(SE$GOAL_COMPARATOR_IRI,SE$SOCIAL_COMPARATOR_IRI))
 })

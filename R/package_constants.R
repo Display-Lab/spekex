@@ -3,6 +3,8 @@
 SE <- new.env()
 
 SE$SUITE_NAMES <- c('sham','va','mtx', 'aspire', 'va2')
+SE$MEASURE_BNODE_PREFIX <- "_:m"
+SE$DEFAULT_BNODE_PREFIX <- "_:z"
 
 # Error messages
 SE$UNRECOGNIZED_NAME <- "Unrecognized set name."

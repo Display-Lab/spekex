@@ -5,7 +5,7 @@
 #' @importFrom rlang warn is_empty
 #' @export
 lookup_comparator <- function(identifier, spek){
-  comparator_i <- lookup_comparator_by_id(spek, identifier)
+  comparator_i <- lookup_comparator_by_id(identifier, spek)
   if(length(comparator_i) > 0){
     comparator_i
   }else{
@@ -14,10 +14,15 @@ lookup_comparator <- function(identifier, spek){
   }
 }
 
-lookup_comparator_by_id <- function(spek, id){
+lookup_comparator_by_id <- function(id, spek){
   measures <- measures_from_spek(spek)
   comparators <- unlist(lapply(measures, comparators_of_measure), recursive = F)
   ids <- sapply(comparators, id_of_comparator)
   pos <- which(ids == id)
-  comparators[[pos]]
+  # handle no comparator found
+  if(length(pos) < 1){
+    list()
+  }else{
+    comparators[[pos]]
+  }
 }

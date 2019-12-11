@@ -76,8 +76,8 @@ eval_achievement <- function(x, comp){
 
 eval_comparator_type <- function(match_iri, spek){
   # measure_id provided by running environment
-  c_type <- spekex::comparator_type_of_measure(
-    spekex::lookup_measure(measure_id, spek) )
+  c_type <- spekex::comparator_types_of_measure(
+    spekex::lookup_measure(measure_id, spek) )[[1]]
   identical(c_type, match_iri)
 }
 

@@ -1,6 +1,6 @@
 Package: spekex
 Title: What the Package Does (One Line, Title Case)
-Version: 0.4.0
+Version: 0.4.2
 Authors@R: 
     person(given = "Colin",
            family = "Gross",
@@ -18,4 +18,4 @@ Imports: dplyr,
   rlang
 Suggests: 
     testthat
-RoxygenNote: 7.0.0
+RoxygenNote: 7.0.2

@@ -9,7 +9,7 @@ lookup_comparator <- function(identifier, spek){
   if(length(comparator_i) > 0){
     comparator_i
   }else{
-    rlang::warn(paste(identifier, SE$COMPARATOR_NOT_IN_SPEK))
+    rlang::warn(paste0("'",identifier,"' ", SE$COMPARATOR_NOT_IN_SPEK))
     list()
   }
 }

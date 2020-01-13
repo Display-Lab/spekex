@@ -56,7 +56,7 @@ calc_comparator_value <- function(data, spek, m_id, c_id){
     measure <- spekex::lookup_measure(m_id, spek)
     m_name <- spekex::identifier_of_measure(measure)
     val <- data %>%
-      filter(Measure_Name == m_name) %>%
+      dplyr::filter(Measure_Name == m_name) %>%
       summarize(value=mean(Passed_Count / Denominator)) %>%
       pull(value)
   }

@@ -39,6 +39,7 @@ SE$ABOUT_ORGANIZATION_IRI <- "http://example.com/slowmo#IsAboutOrganization"
 ### Additional IRIs used in bitstomach ###
 SE$DESCRIBED_BY <- "http://example.com/slowmo#DescribedBy"
 SE$REGARDING_MEASURE <- "http://example.com/slowmo#RegardingMeasure"
+SE$REGARDING_COMPARATOR <- "http://example.com/slowmo#RegardingComparator"
 SE$DEFAULT_APP_IRI <- "http://example.com/app#"
 SE$HAS_PERFORMERS_IRI <- "http://example.com/slowmo#IsAboutPerformer"
 SE$PERFORMER_IRI <- "http://purl.obolibrary.org/obo/psdo_0000085"

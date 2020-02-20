@@ -29,6 +29,6 @@ write_spek_file <- function(spek, outpath){
     rlang::abort("Output file is not writeble.")
   }
   spek_json <- jsonlite::toJSON(spek, auto_unbox = T)
-  cat(spek_json, out)
+  cat(spek_json, file=out)
   close(out)
 }

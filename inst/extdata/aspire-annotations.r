@@ -84,8 +84,11 @@ eval_negative_trend <- function(x){
 }
 
 # This does not handle a missing most recent time point.  That needs to be accounted for elsewhere.
+# Most recent (greatest) timepoint is at or above comparator and all others are below
+# All FALSE with single TRUE at end
 eval_achievement <- function(x, comp){
-  # Last timepoint is at or above comparator and all others are below
+  if(length(x) < 2){ return(FALSE)}
+
   bools <- x >= comp
   return( sum(bools)==1 & dplyr::last(bools) == TRUE)
 }
@@ -190,6 +193,7 @@ annotate_achievement <- function(data, spek){
 
   data %>%
     mutate(rate = !!numer / !!denom) %>%
+    arrange(!!time) %>%
     group_by(!!id) %>%
     summarize( achievement = eval_achievement(rate,cache$comparator))
 }

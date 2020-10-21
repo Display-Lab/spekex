@@ -18,6 +18,7 @@ csvw_to_readr_types <- function(csvw_type){
     "string"  = readr::col_character(),
     "date"    = readr::col_date(),
     "integer" = readr::col_integer(),
+    "double"  = readr::col_double(),
     readr::col_character()
   )
 }

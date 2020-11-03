@@ -191,11 +191,23 @@ annotate_achievement <- function(data, spek){
   numer <- cache$numer_col_sym
   id <- cache$id_col_sym
 
+  all_ids_df <- data %>% select(!!id) %>% distinct
+
+  elidgibile_ids <- data %>%
+    dplyr::filter(!!time == max(!!time)) %>%
+    pull(!!id) %>%
+    unique
+
   data %>%
+    dplyr::filter(!!id %in% elidgibile_ids) %>%
     mutate(rate = !!numer / !!denom) %>%
     arrange(!!time) %>%
     group_by(!!id) %>%
-    summarize( achievement = eval_achievement(rate,cache$comparator))
+    summarize( achievement = eval_achievement(rate,cache$comparator)) %>%
+    right_join(all_ids_df)
+
+  id <- cache$id_col_sym
+  data %>% group_by(!!id) %>% summarize( achievement = FALSE)
 }
 
 annotate_comparators <- function(data, spek){
